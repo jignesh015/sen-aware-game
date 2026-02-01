@@ -149,6 +149,7 @@ GameObject:
   - component: {fileID: 8007492806077609083}
   - component: {fileID: 8761048881297307301}
   - component: {fileID: 8097651661324378771}
+  - component: {fileID: 402967049577303040}
   m_Layer: 5
   m_Name: LargeBtn
   m_TagString: Untagged
@@ -273,3 +274,16 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 15, y: -15}
   m_UseGraphicAlpha: 1
+--- !u!114 &402967049577303040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6408796788712488446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b53e2f69f924647be1c54d1ebcb70f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SenAware.ButtonClickSFX
+  buttonClickId: 4

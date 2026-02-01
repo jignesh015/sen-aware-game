@@ -234,6 +234,8 @@ MonoBehaviour:
   shakeStrength: 10
   shakeVibrato: 1
   shakeRandomness: 1
+  correctSFX: {fileID: 8300000, guid: e9df1379c4a001040bca4f0db8451eb2, type: 3}
+  incorrectSFX: {fileID: 8300000, guid: df451782afa69be4fa0395acda4c4d96, type: 3}
 --- !u!1 &5323512413307291223
 GameObject:
   m_ObjectHideFlags: 0

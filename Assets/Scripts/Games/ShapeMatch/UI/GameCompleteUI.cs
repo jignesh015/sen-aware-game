@@ -13,6 +13,10 @@ namespace SenAware.ShapeMatch
         [SerializeField] private float starsDelay = 0.25f;
         [SerializeField] private Transform[] stars;
         
+        [Header("SFX SETTINGS")]
+        [SerializeField] private AudioClip winSFXClip;
+        [SerializeField] private AudioClip starPopSFXClip;
+        
         private Vector3[] _initialStarScales;
         
         private CanvasGroup _canvasGroup;
@@ -38,6 +42,7 @@ namespace SenAware.ShapeMatch
 
         private void OnShapeMatchGameEnd()
         {
+            GlobalStatic.OnSFXRequested?.Invoke(winSFXClip, false);
             CommonMethods.ToggleCanvasGroup(_canvasGroup, true, 0.1f);
             CommonMethods.OpenPopup(popupParent, popupOpenDuration, OnPopupOpened);
         }
@@ -54,6 +59,11 @@ namespace SenAware.ShapeMatch
             {
                 stars[i].localScale  =Vector3.zero;
                 stars[i].DOScale(_initialStarScales[i], starScaleDuration).SetDelay(i * starsDelay);
+                // Play star pop SFX wth respective delay
+                DOVirtual.DelayedCall(i * starsDelay, () =>
+                {
+                    GlobalStatic.OnSFXRequested?.Invoke(starPopSFXClip, true);
+                });
             }
         }
         

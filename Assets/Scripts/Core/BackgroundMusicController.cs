@@ -27,6 +27,10 @@ namespace SenAware
             
             TryGetComponent(out _audioSource1);
             _audioSource2 = gameObject.AddComponent<AudioSource>();
+            _audioSource1.loop = true;
+            _audioSource2.loop = true;
+            _audioSource2.volume = _audioSource1.volume;
+            _audioSource2.outputAudioMixerGroup = _audioSource1.outputAudioMixerGroup;
             GlobalStatic.OnBGMRequested += OnBGMRequested;
             GlobalStatic.OnSessionStarted += OnSessionStarted;
         }

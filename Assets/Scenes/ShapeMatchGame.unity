@@ -601,6 +601,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SenAware.ShapeMatch.RoundTimerUI
   timerFillImage: {fileID: 975715781}
   fadeDuration: 0.5
+  fillLerpSpeed: 5
 --- !u!225 &388010052
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -3270,6 +3271,8 @@ MonoBehaviour:
   - {fileID: 671985560}
   - {fileID: 1599503434}
   - {fileID: 388790033}
+  winSFXClip: {fileID: 8300000, guid: 64cc55edbb080584cb32852e0b4ca303, type: 3}
+  starPopSFXClip: {fileID: 8300000, guid: da982e48d85c9724e8b62b44ffb2964f, type: 3}
 --- !u!114 &8196509601477282570
 MonoBehaviour:
   m_ObjectHideFlags: 0

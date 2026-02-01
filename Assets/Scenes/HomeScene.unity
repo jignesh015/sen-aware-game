@@ -1921,6 +1921,7 @@ Transform:
   - {fileID: 1187157394}
   - {fileID: 1485338407}
   - {fileID: 1298924544}
+  - {fileID: 1847731445}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1114627481
@@ -2710,6 +2711,7 @@ GameObject:
   - component: {fileID: 1581555126}
   - component: {fileID: 1581555127}
   - component: {fileID: 1581555128}
+  - component: {fileID: 1581555129}
   m_Layer: 5
   m_Name: GameButton
   m_TagString: Untagged
@@ -2852,6 +2854,19 @@ MonoBehaviour:
   playButtonTransform: {fileID: 2053087757}
   scaleValue: 0.8
   tweenDuration: 1
+--- !u!114 &1581555129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1581555122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b53e2f69f924647be1c54d1ebcb70f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SenAware.ButtonClickSFX
+  buttonClickId: 8
 --- !u!1 &1605362980
 GameObject:
   m_ObjectHideFlags: 0
@@ -3476,6 +3491,61 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1752605741}
   m_CullTransparentMesh: 1
+--- !u!1 &1847731444
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1847731445}
+  - component: {fileID: 1847731446}
+  m_Layer: 0
+  m_Name: SFXController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1847731445
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1847731444}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1022987751}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1847731446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1847731444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d66f2bd44762482fb9519fa3334124b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SenAware.SFXController
+  sfxAudioMixerGroup: {fileID: -1616913420708330850, guid: 81d8beb10db39fe4db731f10f34ee5a5, type: 2}
+  buttonClickSFXClips:
+  - {fileID: 8300000, guid: 75b3ba10545ffd64697fc99b670e075f, type: 3}
+  - {fileID: 8300000, guid: 3dc109291db17af429c2e32b6686e9db, type: 3}
+  - {fileID: 8300000, guid: df451782afa69be4fa0395acda4c4d96, type: 3}
+  - {fileID: 8300000, guid: 52c1de8efdc1c24409942eb53155c081, type: 3}
+  - {fileID: 8300000, guid: 77812660fc6eb3440a457d2d660f598a, type: 3}
+  - {fileID: 8300000, guid: da982e48d85c9724e8b62b44ffb2964f, type: 3}
+  - {fileID: 8300000, guid: 4c93787dbf2037e4cbd2178afb70c3ef, type: 3}
+  - {fileID: 8300000, guid: 64cc55edbb080584cb32852e0b4ca303, type: 3}
+  - {fileID: 8300000, guid: e9df1379c4a001040bca4f0db8451eb2, type: 3}
 --- !u!224 &1856875459 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1843013878820279771, guid: 0357904ffb27d2d4bb94deb4ef9cbf50, type: 3}

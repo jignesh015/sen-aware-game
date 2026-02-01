@@ -24,6 +24,9 @@ namespace SenAware.ShapeMatch
         [SerializeField] private int shakeVibrato = 1;
         [SerializeField] private float shakeRandomness = 1f;
         
+        [Header("SFX")]
+        [SerializeField] private AudioClip correctSFX;
+        [SerializeField] private AudioClip incorrectSFX;
         
         private CanvasGroup _canvasGroup;
         private Button _button;
@@ -71,6 +74,8 @@ namespace SenAware.ShapeMatch
         private void OnOptionClicked()
         {
             _onClickAction?.Invoke(_shapeSo, _isCorrectOption);
+            GlobalStatic.OnSFXRequested?.Invoke(_isCorrectOption ? correctSFX : incorrectSFX, true);
+            
             if (_isAlreadyClicked)
             {
                 return;

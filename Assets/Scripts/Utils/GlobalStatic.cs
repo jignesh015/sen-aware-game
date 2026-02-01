@@ -9,6 +9,7 @@ namespace SenAware
         public const string HomeScene = "HomeScene";        
         public const float NewSceneLoadDelay = 1.5f;   
         public const float BGMCrossfadeDuration = 2f;   
+        public const float SFXVolume = 1f;   
         public const string UserID = "DEMO_USER"; // Temporary user ID for demo purpose
         public static readonly string SessionHistoryFileName = $"session_history_{UserID}.json";
 
@@ -26,5 +27,9 @@ namespace SenAware
         public static Action<bool> OnMusicToggleChanged;
         public static Action<bool> OnSoundToggleChanged;
         public static Action<AudioClip> OnBGMRequested;
+        public static Action<AudioClip, bool> OnSFXRequested;
+        public static Action<int> OnButtonClickSFXRequested;
+        // bool indicates whether to randomize pitch
+        
     }
 }
