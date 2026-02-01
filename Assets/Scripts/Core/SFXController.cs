@@ -57,7 +57,7 @@ namespace SenAware
                 return;
             
             clipIndex = Mathf.Clamp(clipIndex, 0, buttonClickSFXClips.Length - 1);
-            OnSFXRequested(buttonClickSFXClips[clipIndex], false);
+            OnSFXRequested(buttonClickSFXClips[clipIndex], true);
         }
     }
 }

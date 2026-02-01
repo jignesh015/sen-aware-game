@@ -38,5 +38,15 @@ namespace SenAware
             popupParent.DOScale(Vector3.zero, tweenDuration).SetEase(Ease.InBack).SetUpdate(true)
                 .OnComplete(() => onComplete?.Invoke());
         }
+        
+        public static bool IsSoundEnabled()
+        {
+            return PlayerPrefs.GetInt(GlobalStatic.SoundPrefKey, 1) == 1;
+        }
+        
+        public static bool IsMusicEnabled()
+        {
+            return PlayerPrefs.GetInt(GlobalStatic.MusicPrefKey, 1) == 1;
+        }
     }
 }
