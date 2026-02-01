@@ -7,9 +7,10 @@ namespace SenAware
     {
         // Constants
         public const string HomeScene = "HomeScene";        
-        public const float NewSceneLoadDelay = 1.5f;        
+        public const float NewSceneLoadDelay = 1.5f;   
+        public const string UserID = "DEMO_USER"; // Temporary user ID for demo purpose
         
-        // Player UI interactions
+        // Common UI interactions
         public static Action<GameInfo> OnGameButtonPressed;
         public static Action OnPauseButtonPressed;
         public static Action OnResumeButtonPressed;

@@ -30,7 +30,7 @@ namespace SenAware.ShapeMatch
             ShapeMatchStatic.OnShapeMatchRoundEnded -= OnShapeMatchRoundEnded;
         }
 
-        private void OnShapeMatchRoundStarted(ShapesSO shapeToMatch, List<ShapesSO> shapeOptions)
+        private void OnShapeMatchRoundStarted(int roundNumber, ShapesSO shapeToMatch, List<ShapesSO> shapeOptions)
         {
             shapeImage.sprite = shapeToMatch.shapeSprite;
             CommonMethods.ToggleCanvasGroup(_canvasGroup, true, fadeDuration);

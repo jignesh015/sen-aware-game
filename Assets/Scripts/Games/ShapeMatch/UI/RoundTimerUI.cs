@@ -34,7 +34,7 @@ namespace SenAware.ShapeMatch
         }
 
         #region  Event Handlers
-        private void OnShapeMatchRoundStarted(ShapesSO arg1, List<ShapesSO> arg2)
+        private void OnShapeMatchRoundStarted(int roundNumber, ShapesSO arg1, List<ShapesSO> arg2)
         {
             timerFillImage.fillAmount = 1f;
             CommonMethods.ToggleCanvasGroup(_canvasGroup, true, fadeDuration);

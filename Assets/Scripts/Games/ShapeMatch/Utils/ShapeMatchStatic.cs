@@ -15,7 +15,7 @@ namespace SenAware.ShapeMatch
         // Game Events
         public static Action<ShapeMatchData> OnShapeMatchGameStart; // Parameter: shape match data
         public static Action OnShapeMatchGameEnd;
-        public static Action<ShapesSO, List<ShapesSO>> OnShapeMatchRoundStarted; // Parameters: target shape, list of option shapes
+        public static Action<int, ShapesSO, List<ShapesSO>> OnShapeMatchRoundStarted; // Parameters: round number, target shape, list of option shapes
         public static Action OnShapeMatchRoundEnded;
         public static Action<float> OnRoundTimerUpdated; // Parameter: time left in seconds
         

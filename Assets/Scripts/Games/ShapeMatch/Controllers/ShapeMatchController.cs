@@ -119,7 +119,7 @@ namespace SenAware.ShapeMatch
             _isRoundActive = true;
             
             // Invoke the round started event
-            ShapeMatchStatic.OnShapeMatchRoundStarted?.Invoke(shapeToMatch, options);
+            ShapeMatchStatic.OnShapeMatchRoundStarted?.Invoke(_currentRound, shapeToMatch, options);
         }
         
         private async void EndRound()

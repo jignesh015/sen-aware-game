@@ -70,13 +70,12 @@ namespace SenAware.ShapeMatch
         
         private void OnOptionClicked()
         {
+            _onClickAction?.Invoke(_shapeSo, _isCorrectOption);
             if (_isAlreadyClicked)
             {
-                // TODO: log multiple click for analytics
                 return;
             }
             _isAlreadyClicked = true;
-            _onClickAction?.Invoke(_shapeSo, _isCorrectOption);
 
             if (_isCorrectOption)
             {

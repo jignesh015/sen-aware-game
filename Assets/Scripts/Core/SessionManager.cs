@@ -47,6 +47,8 @@ namespace SenAware
         {
             CurrentSessionAnalytics = new SessionAnalytics
             {
+                sessionID = Guid.NewGuid().ToString(),
+                sessionStartTime =  DateTime.UtcNow,
                 gameID = gameInfo.gameID,
                 gameRounds = new List<SingleRoundAnalytics>(),
                 adaptiveChangesMade = 0,

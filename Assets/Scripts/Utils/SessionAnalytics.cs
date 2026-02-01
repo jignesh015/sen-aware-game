@@ -7,25 +7,33 @@ namespace SenAware
     [Serializable]
     public class SessionAnalytics
     {
+        public string sessionID;
+        public DateTime sessionStartTime;
         public string gameID;
-        public List<SingleRoundAnalytics> gameRounds = new List<SingleRoundAnalytics>();
         public int adaptiveChangesMade;
         public int inattentiveWarnings;
+        public List<SingleRoundAnalytics> gameRounds = new List<SingleRoundAnalytics>();
     }
     
     [Serializable]
     public class SingleRoundAnalytics
     {
         public int roundNumber;
-        public int timeTaken;
-        public int timeToFirstInteraction;
-        public int timeToSuccessfulInteraction;
+        public float timeTaken;
+        public float timeToFirstInteraction;
+        public float timeToSuccessfulInteraction;
         public int numberOfMistakes;
         public int repeatedInteractionsWithSameObject;
-        public int inactiveTime;
         public DifficultyLevel difficultyLevel;
     }
-    
+
+    [Serializable]
+    public class SessionHistory
+    {
+        public string userID;
+        public List<SessionAnalytics> sessions = new List<SessionAnalytics>();
+    }
+
     [Serializable]
     public enum DifficultyLevel
     {
