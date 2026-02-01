@@ -45,6 +45,7 @@ namespace SenAware
         public void OnQuitButtonPressed()
         {
             Time.timeScale = 1f;
+            Debug.Log("Quit to Home Button Pressed");
             GlobalStatic.OnQuitToHomeButtonPressed?.Invoke();
         }
     }

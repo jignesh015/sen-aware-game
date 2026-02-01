@@ -22,13 +22,14 @@ namespace SenAware.ShapeMatch
         {
             ShapeMatchStatic.OnShapeOptionTapped += OnShapeOptionTapped;
             ShapeMatchStatic.OnGameCompleteContinueButtonTapped += OnGameCompleteContinueButtonTapped;
-            
+            GlobalStatic.OnQuitToHomeButtonPressed += OnQuitToHomeButtonPressed;
         }
         
         private void OnDestroy()
         {
             ShapeMatchStatic.OnShapeOptionTapped -= OnShapeOptionTapped;
             ShapeMatchStatic.OnGameCompleteContinueButtonTapped -= OnGameCompleteContinueButtonTapped;
+            GlobalStatic.OnQuitToHomeButtonPressed -= OnQuitToHomeButtonPressed;
         }
 
         private void Start()
@@ -152,10 +153,16 @@ namespace SenAware.ShapeMatch
             }
         }
 
-        private void OnGameCompleteContinueButtonTapped()
+        private async void OnGameCompleteContinueButtonTapped()
         {
             if(loadingScreen) loadingScreen.SetActive(true);
-            SceneManager.LoadScene(GlobalStatic.HomeScene);
+            await Awaitable.WaitForSecondsAsync(1f);
+            GlobalStatic.OnQuitToHomeButtonPressed?.Invoke();
+        }
+
+        private void OnQuitToHomeButtonPressed()
+        {
+            if(loadingScreen) loadingScreen.SetActive(true);
         }
         #endregion
     }
