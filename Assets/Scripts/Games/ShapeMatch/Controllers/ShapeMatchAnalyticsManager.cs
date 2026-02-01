@@ -40,7 +40,6 @@ namespace SenAware.ShapeMatch
             _currentRoundAnalytics = new SingleRoundAnalytics
             {
                 roundNumber = roundNumber,
-                timeTaken = 0,
                 timeToFirstInteraction = 0,
                 timeToSuccessfulInteraction = 0,
                 numberOfMistakes = 0,
@@ -51,7 +50,6 @@ namespace SenAware.ShapeMatch
 
         private void OnShapeMatchRoundEnded()
         {
-            _currentRoundAnalytics.timeTaken = Time.time - _roundStartTime;
             _currentRoundAnalytics.numberOfMistakes = _numberOfMistakes;
             _currentRoundAnalytics.repeatedInteractionsWithSameObject = _repeatedInteractionsCount;
 
@@ -67,14 +65,14 @@ namespace SenAware.ShapeMatch
             // Track first interaction
             if (!_roundHasInteraction)
             {
-                _currentRoundAnalytics.timeToFirstInteraction = Time.time - _roundStartTime;
+                _currentRoundAnalytics.timeToFirstInteraction = Math.Round(Time.time - _roundStartTime, 2);
                 _roundHasInteraction = true;
             }
 
             // Track correct interaction
             if (isCorrect)
             {
-                _currentRoundAnalytics.timeToSuccessfulInteraction = Time.time - _roundStartTime;
+                _currentRoundAnalytics.timeToSuccessfulInteraction = Math.Round(Time.time - _roundStartTime, 2);
             }
             else
             {

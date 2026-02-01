@@ -157,7 +157,7 @@ namespace SenAware.ShapeMatch
         {
             if(loadingScreen) loadingScreen.SetActive(true);
             await Awaitable.WaitForSecondsAsync(1f);
-            GlobalStatic.OnQuitToHomeButtonPressed?.Invoke();
+            GlobalStatic.OnSessionEndRequested?.Invoke();
         }
 
         private void OnQuitToHomeButtonPressed()

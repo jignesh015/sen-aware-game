@@ -9,11 +9,16 @@ namespace SenAware
         public const string HomeScene = "HomeScene";        
         public const float NewSceneLoadDelay = 1.5f;   
         public const string UserID = "DEMO_USER"; // Temporary user ID for demo purpose
-        
+        public static readonly string SessionHistoryFileName = $"session_history_{UserID}.json";
+
         // Common UI interactions
         public static Action<GameInfo> OnGameButtonPressed;
         public static Action OnPauseButtonPressed;
         public static Action OnResumeButtonPressed;
         public static Action OnQuitToHomeButtonPressed;
+        
+        // Session Events
+        public static Action OnSessionStarted;
+        public static Action OnSessionEndRequested;
     }
 }

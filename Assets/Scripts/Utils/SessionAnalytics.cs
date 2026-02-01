@@ -8,10 +8,12 @@ namespace SenAware
     public class SessionAnalytics
     {
         public string sessionID;
-        public DateTime sessionStartTime;
+        public string sessionStartTime;
+        public string sessionEndTime;
         public string gameID;
         public int adaptiveChangesMade;
         public int inattentiveWarnings;
+        public bool completedSession;
         public List<SingleRoundAnalytics> gameRounds = new List<SingleRoundAnalytics>();
     }
     
@@ -19,9 +21,8 @@ namespace SenAware
     public class SingleRoundAnalytics
     {
         public int roundNumber;
-        public float timeTaken;
-        public float timeToFirstInteraction;
-        public float timeToSuccessfulInteraction;
+        public double timeToFirstInteraction;
+        public double timeToSuccessfulInteraction;
         public int numberOfMistakes;
         public int repeatedInteractionsWithSameObject;
         public DifficultyLevel difficultyLevel;
