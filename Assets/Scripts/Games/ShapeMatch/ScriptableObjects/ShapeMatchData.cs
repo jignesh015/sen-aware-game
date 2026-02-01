@@ -1,17 +1,20 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 
-namespace SenAware
+namespace SenAware.ShapeMatch
 {
-    [CreateAssetMenu(fileName = "Shape Match Data", menuName = "Games/Shape Match Data", order = 0)]
+    [CreateAssetMenu(fileName = "Shape Match Data", menuName = "Games/ShapeMatch/Shape Match Data", order = 1)]
     public class ShapeMatchData : ScriptableObject
     {
         public DifficultyLevel generalDifficultyLevel;
-        public ShapesSO[] shapes;
-        public AdaptiveShapeMatchData[] adaptiveShapeMatchData;
         public int totalRounds = 5;
+        public float timeBetweenRounds = 1.5f;
+        public List<ShapesSO> shapes;
+        public List<AdaptiveShapeMatchData> adaptiveShapeMatchData;
     }
     
-    [System.Serializable]
+    [Serializable]
     public class AdaptiveShapeMatchData
     {
         public DifficultyLevel roundSpecificDifficultyLevel;

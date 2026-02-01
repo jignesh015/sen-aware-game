@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d105ac7f14c74d6fb7a6d23ba7e0cb7a, type: 3}
+  m_Name: CuteShapesData_Medium
+  m_EditorClassIdentifier: 
+  generalDifficultyLevel: 0
+  totalRounds: 5
+  shapes:
+  - {fileID: 11400000, guid: 4b36b724e0bdfb94792df950ecea53b2, type: 2}
+  - {fileID: 11400000, guid: f9010f1295f5ca7468eb711fb2a7b26c, type: 2}
+  - {fileID: 11400000, guid: daa6c7e520653934db03e9a2c5fc5c73, type: 2}
+  - {fileID: 11400000, guid: b35e23a62b15eac40beffd6a5a6d08cb, type: 2}
+  - {fileID: 11400000, guid: 3387740216dd8274a954b1e8854443a2, type: 2}
+  - {fileID: 11400000, guid: 62da7d39b5e258e4294278565906e743, type: 2}
+  - {fileID: 11400000, guid: 77ad7a7f0422ccc4998e72fe164c9a46, type: 2}
+  - {fileID: 11400000, guid: 922164db984167546a86329c6f6c6a05, type: 2}
+  - {fileID: 11400000, guid: f4bdcc946b5be18448868fcda096d47b, type: 2}
+  - {fileID: 11400000, guid: abad7d951634aee499307f6e9431b094, type: 2}
+  - {fileID: 11400000, guid: c2073e324fdb8ef48b19584b4192bde4, type: 2}
+  - {fileID: 11400000, guid: 23e66df451cda794fa9f1e349bea1f69, type: 2}
+  adaptiveShapeMatchData:
+  - roundSpecificDifficultyLevel: 0
+    numOfOptions: 3
+    timePerRoundInSeconds: 90
+  - roundSpecificDifficultyLevel: 1
+    numOfOptions: 3
+    timePerRoundInSeconds: 75
+  - roundSpecificDifficultyLevel: 2
+    numOfOptions: 4
+    timePerRoundInSeconds: 60

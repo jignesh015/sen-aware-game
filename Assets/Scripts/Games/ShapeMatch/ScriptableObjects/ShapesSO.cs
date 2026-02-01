@@ -1,8 +1,8 @@
 using UnityEngine;
 
-namespace SenAware
+namespace SenAware.ShapeMatch
 {
-    [CreateAssetMenu(fileName = "Shape", menuName = "Shape SO", order = 0)]
+    [CreateAssetMenu(fileName = "Shape", menuName = "Games/ShapeMatch/Shape SO", order = 0)]
     public class ShapesSO : ScriptableObject
     {
         public Sprite shapeSprite;
