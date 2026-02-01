@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d105ac7f14c74d6fb7a6d23ba7e0cb7a, type: 3}
+  m_Name: Animals_Medium
+  m_EditorClassIdentifier: 
+  generalDifficultyLevel: 1
+  totalRounds: 5
+  timeBetweenRounds: 1
+  shapes:
+  - {fileID: 11400000, guid: 9784786854a88214f93ed458b0393042, type: 2}
+  - {fileID: 11400000, guid: e25cca12b592b1b43a0c4c676e16af23, type: 2}
+  - {fileID: 11400000, guid: 27ce7f31c6473a14594adf6e3b8426a6, type: 2}
+  - {fileID: 11400000, guid: f21a3bde1b4a5e945a71e8d11f766f6e, type: 2}
+  - {fileID: 11400000, guid: 2c776ef3553e37d44aaea0623ccc31c8, type: 2}
+  - {fileID: 11400000, guid: 22741b9ef9787e34b8a2cbf60af13878, type: 2}
+  - {fileID: 11400000, guid: 5f73fd921d6545f4c8d147078ac325f5, type: 2}
+  - {fileID: 11400000, guid: cd8a02121e71825409430d923088485b, type: 2}
+  - {fileID: 11400000, guid: e87f74dc1c40ba144aa7088437351d3b, type: 2}
+  - {fileID: 11400000, guid: 7dc87eb87acf4f044b7b746f7d97f26a, type: 2}
+  - {fileID: 11400000, guid: 3ad24b4301bdcf1419717a76ae67a34b, type: 2}
+  - {fileID: 11400000, guid: afeea3c85211c8c48a7ddc6d36eb6f70, type: 2}
+  - {fileID: 11400000, guid: eeea18348e9176f44ac107d6474a25cb, type: 2}
+  - {fileID: 11400000, guid: 1e2a3846a42981b438ea8ce8eb93e859, type: 2}
+  - {fileID: 11400000, guid: 943ba345ac1fa6c4a858bc5c095cac62, type: 2}
+  - {fileID: 11400000, guid: 190fb43e30f02f64e97ba2dab797e6bf, type: 2}
+  - {fileID: 11400000, guid: 68530e4a58d76af4ab932d7bf05a04d0, type: 2}
+  - {fileID: 11400000, guid: 3d37fb55db009d04e8dddc960a6676c9, type: 2}
+  adaptiveShapeMatchData:
+  - roundSpecificDifficultyLevel: 0
+    numOfOptions: 3
+    timePerRoundInSeconds: 90
+  - roundSpecificDifficultyLevel: 1
+    numOfOptions: 3
+    timePerRoundInSeconds: 75
+  - roundSpecificDifficultyLevel: 2
+    numOfOptions: 4
+    timePerRoundInSeconds: 60

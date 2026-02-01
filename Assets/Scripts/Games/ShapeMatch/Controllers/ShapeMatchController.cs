@@ -56,6 +56,8 @@ namespace SenAware.ShapeMatch
 
         private void StartGame()
         {
+            // Shuffle shapeMatchDataList to ensure randomness
+            shapeMatchDataList = shapeMatchDataList.OrderBy(x => Random.value).ToList();
             _currentShapeMatchDataData = shapeMatchDataList.Find(s => s.generalDifficultyLevel == ShapeMatchStatic.CurrentDifficultyLevel);
             if (!_currentShapeMatchDataData)
             {
