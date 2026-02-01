@@ -17,4 +17,12 @@ MonoBehaviour:
   gameDescription: 'Player have to match the given silhouette to the matching shape
     from the bunch of different shapes provided '
   gameThumbnail: {fileID: 21300000, guid: b620ea26b4c7a4d44b95a11176c710a9, type: 3}
+  gameBGM: {fileID: 8300000, guid: 6a1e38748e2328641a2e6174f77b2e1a, type: 3}
   gameSceneName: ShapeMatchGame
+  adaptiveDifficultyRules:
+    timeToSuccessfulInteractionLowerThreshold: 15
+    timeToSuccessfulInteractionUpperThreshold: 45
+    numberOfMistakesLowerThreshold: 2
+    numberOfMistakesUpperThreshold: 4
+    inAttentiveWarningsLowerThreshold: 2
+    inAttentiveWarningsUpperThreshold: 5

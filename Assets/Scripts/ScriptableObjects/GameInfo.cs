@@ -11,6 +11,7 @@ namespace SenAware
         [TextArea(3, 10)]
         public string gameDescription;
         public Sprite gameThumbnail;
+        public AudioClip gameBGM;
         public string gameSceneName;
         public GameAdaptiveDifficultyRules adaptiveDifficultyRules;
     }
