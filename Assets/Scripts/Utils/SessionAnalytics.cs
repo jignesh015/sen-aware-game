@@ -11,6 +11,7 @@ namespace SenAware
         public string sessionStartTime;
         public string sessionEndTime;
         public string gameID;
+        public DifficultyLevel generalDifficultyLevel;
         public int adaptiveChangesMade;
         public int inattentiveWarnings;
         public bool completedSession;

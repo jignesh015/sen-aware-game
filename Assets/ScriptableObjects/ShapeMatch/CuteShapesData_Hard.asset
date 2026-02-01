@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d105ac7f14c74d6fb7a6d23ba7e0cb7a, type: 3}
   m_Name: CuteShapesData_Hard
   m_EditorClassIdentifier: 
-  generalDifficultyLevel: 0
+  generalDifficultyLevel: 2
   totalRounds: 5
+  timeBetweenRounds: 1
   shapes:
   - {fileID: 11400000, guid: 4b36b724e0bdfb94792df950ecea53b2, type: 2}
   - {fileID: 11400000, guid: f9010f1295f5ca7468eb711fb2a7b26c, type: 2}

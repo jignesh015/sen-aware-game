@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace SenAware.ShapeMatch
 {
@@ -10,6 +11,10 @@ namespace SenAware.ShapeMatch
         [SerializeField] private ShapeOption shapeOptionPrefab;
         [SerializeField] private float spawnInterval = 0.1f;
         [SerializeField] private float fadeInDuration = 0.5f;
+        
+        [Header("SPACING SETTINGS")]
+        [SerializeField] private HorizontalLayoutGroup layoutGroup;
+        [SerializeField] private Vector2Int[] spacingByOptionCount;
         
         private CanvasGroup _canvasGroup;
 
@@ -35,6 +40,10 @@ namespace SenAware.ShapeMatch
                 Destroy(child.gameObject);
             }
             
+            // Adjust spacing based on option count
+            var spacingSetting = Array.Find(spacingByOptionCount, s => s.x == shapeOptions.Count);
+            layoutGroup.spacing = Mathf.Max(spacingSetting.y, 50);
+
             CommonMethods.ToggleCanvasGroup(_canvasGroup, true);
             
             var childIndex = 0;

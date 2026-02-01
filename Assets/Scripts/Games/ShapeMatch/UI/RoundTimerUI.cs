@@ -11,6 +11,7 @@ namespace SenAware.ShapeMatch
         [SerializeField] private Image timerFillImage;
             
         [SerializeField] private float fadeDuration = 0.5f;
+        [SerializeField] private float fillLerpSpeed = 5f;
         
         private CanvasGroup _canvasGroup;
         private bool _isTimerRunning;
@@ -47,7 +48,8 @@ namespace SenAware.ShapeMatch
 
         private void OnRoundTimerUpdated(float timeRemaining)
         {
-            timerFillImage.fillAmount = timeRemaining / ShapeMatchStatic.RoundTimerDuration;
+            timerFillImage.fillAmount =  Mathf.Lerp(timerFillImage.fillAmount, 
+                timeRemaining / ShapeMatchStatic.RoundTimerDuration, Time.deltaTime * fillLerpSpeed) ;
         }
         #endregion
     }

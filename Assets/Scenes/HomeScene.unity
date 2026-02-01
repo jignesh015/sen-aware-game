@@ -2133,9 +2133,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentSessionAnalytics:
     sessionID: 
+    sessionStartTime: 
+    sessionEndTime: 
     gameID: 
+    generalDifficultyLevel: 0
     adaptiveChangesMade: 0
     inattentiveWarnings: 0
+    completedSession: 0
     gameRounds: []
 --- !u!1 &1283437208
 GameObject:

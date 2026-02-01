@@ -17,9 +17,11 @@ namespace SenAware.ShapeMatch
         private int _currentRound = 0;
         private float _roundTimer;
         private bool _isRoundActive = false;
+        private bool _hasGameStarted = false;
 
         private void Awake()
         {
+            ShapeMatchStatic.OnDifficultyLevelSet += OnDifficultyLevelSet;
             ShapeMatchStatic.OnShapeOptionTapped += OnShapeOptionTapped;
             ShapeMatchStatic.OnGameCompleteContinueButtonTapped += OnGameCompleteContinueButtonTapped;
             GlobalStatic.OnQuitToHomeButtonPressed += OnQuitToHomeButtonPressed;
@@ -27,6 +29,7 @@ namespace SenAware.ShapeMatch
         
         private void OnDestroy()
         {
+            ShapeMatchStatic.OnDifficultyLevelSet -= OnDifficultyLevelSet;
             ShapeMatchStatic.OnShapeOptionTapped -= OnShapeOptionTapped;
             ShapeMatchStatic.OnGameCompleteContinueButtonTapped -= OnGameCompleteContinueButtonTapped;
             GlobalStatic.OnQuitToHomeButtonPressed -= OnQuitToHomeButtonPressed;
@@ -35,7 +38,6 @@ namespace SenAware.ShapeMatch
         private void Start()
         {
             if(loadingScreen) loadingScreen.SetActive(false);
-            StartGame();
         }
 
         private void Update()
@@ -54,15 +56,22 @@ namespace SenAware.ShapeMatch
 
         private void StartGame()
         {
-            _currentShapeMatchDataData = shapeMatchDataList[0];
+            _currentShapeMatchDataData = shapeMatchDataList.Find(s => s.generalDifficultyLevel == ShapeMatchStatic.CurrentDifficultyLevel);
+            if (!_currentShapeMatchDataData)
+            {
+                Debug.LogError($"No ShapeMatchData found for difficulty level: {ShapeMatchStatic.CurrentDifficultyLevel}");
+                return;
+            }
+            
             _currentRound = 0;
+            _hasGameStarted = true;
             
             // Initialize available shapes pool
             _availableShapes = new List<ShapesSO>(_currentShapeMatchDataData.shapes);
             ShapeMatchStatic.UseExtendedTouchAreas = _currentShapeMatchDataData.generalDifficultyLevel == DifficultyLevel.Easy;
             
             ShapeMatchStatic.OnShapeMatchGameStart?.Invoke(_currentShapeMatchDataData);
-            StartNewRound(DifficultyLevel.Hard);
+            StartNewRound(ShapeMatchStatic.CurrentDifficultyLevel);
         }
         
         private void StartNewRound(DifficultyLevel difficultyLevel)
@@ -130,7 +139,7 @@ namespace SenAware.ShapeMatch
 
             await Awaitable.WaitForSecondsAsync(_currentShapeMatchDataData.timeBetweenRounds);
             
-            StartNewRound(DifficultyLevel.Hard);
+            StartNewRound(ShapeMatchStatic.CurrentDifficultyLevel);
         }
         
         private void ShuffleList<T>(List<T> list)
@@ -143,6 +152,15 @@ namespace SenAware.ShapeMatch
         }
         
         #region Event Handlers
+
+        private void OnDifficultyLevelSet(DifficultyLevel level)
+        {
+            if (!_hasGameStarted)
+            {
+                StartGame();
+            }
+        }
+        
         private void OnShapeOptionTapped(ShapesSO shapesSo, bool isCorrect)
         {
             if (!_isRoundActive) return;

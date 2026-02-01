@@ -9,7 +9,7 @@ namespace SenAware.ShapeMatch
     {
         public DifficultyLevel generalDifficultyLevel;
         public int totalRounds = 5;
-        public float timeBetweenRounds = 1.5f;
+        public float timeBetweenRounds = 1f;
         public List<ShapesSO> shapes;
         public List<AdaptiveShapeMatchData> adaptiveShapeMatchData;
     }

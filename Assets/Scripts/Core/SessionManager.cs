@@ -49,6 +49,9 @@ namespace SenAware
 
         private async void StartNewSession(GameInfo gameInfo)
         {
+            // Disable the screen timeout while in a game session
+            Screen.sleepTimeout = SleepTimeout.NeverSleep;
+            
             CurrentGameInfo = gameInfo;
             CurrentSessionAnalytics = new SessionAnalytics
             {
@@ -70,6 +73,9 @@ namespace SenAware
         {
             try
             {
+                // Enable the screen timeout back to system settings
+                Screen.sleepTimeout = SleepTimeout.SystemSetting;
+                
                 if (CurrentSessionAnalytics != null)
                 {
                     CurrentSessionAnalytics.completedSession = completedSession;
@@ -84,6 +90,8 @@ namespace SenAware
             catch (Exception e)
             {
                 Debug.LogError($"Error ending session: {e.Message}");
+                // Enable the screen timeout back to system settings
+                Screen.sleepTimeout = SleepTimeout.SystemSetting;
                 SceneManager.LoadScene(GlobalStatic.HomeScene);
             }
         }
