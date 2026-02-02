@@ -9,7 +9,9 @@ namespace SenAware
 {
     public class SessionManager : MonoBehaviour
     {
-        public SessionAnalytics CurrentSessionAnalytics;
+        public List<GameInfo> AvailableGames = new List<GameInfo>();
+        
+        public SessionAnalytics CurrentSessionAnalytics { get; private set; }
         public GameInfo CurrentGameInfo { get; private set; }
 
         public static SessionManager Instance { get; private set; }
@@ -95,6 +97,12 @@ namespace SenAware
                 SceneManager.LoadScene(GlobalStatic.HomeScene);
             }
         }
+        
+        public string GetGameTitleByID(string gameID)
+        {
+            var game = AvailableGames.FirstOrDefault(g => g.gameID == gameID);
+            return game ? game.gameTitle : "Unknown Game";
+        }
 
         /// <summary>
         /// Saves the current session analytics to the session history and persists it to a JSON file.
@@ -149,7 +157,7 @@ namespace SenAware
         /// </summary>
         /// <param name="gameID">The game ID to filter sessions by</param>
         /// <returns>A list of SessionAnalytics for the specified gameID</returns>
-        public async Awaitable<List<SessionAnalytics>> FetchSessionHistoryByGameIDAsync(string gameID)
+        public async Awaitable<List<SessionAnalytics>> FetchSessionHistoryByGameIDAsync(string gameID = null)
         {
             try
             {
@@ -171,6 +179,11 @@ namespace SenAware
                     return new List<SessionAnalytics>();
                 }
 
+                if (string.IsNullOrEmpty(gameID))
+                {
+                    return sessionHistory.sessions;
+                }
+                
                 // Filter sessions by gameID
                 var filteredSessions = sessionHistory.sessions.Where(
                     session => session.gameID == gameID).ToList();

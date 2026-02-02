@@ -36,6 +36,11 @@ namespace SenAware.HomeScene
                     .SetEase(DG.Tweening.Ease.InOutSine);
             }
         }
+        
+        public void OnStatsButtonPressed()
+        {
+            GlobalStatic.OnStatsButtonPressed?.Invoke();
+        }
 
         #region Event Handlers
 

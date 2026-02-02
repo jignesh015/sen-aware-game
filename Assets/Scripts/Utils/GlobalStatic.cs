@@ -19,6 +19,7 @@ namespace SenAware
 
         // Common UI interactions
         public static Action<GameInfo> OnGameButtonPressed;
+        public static Action OnStatsButtonPressed;
         public static Action OnPauseButtonPressed;
         public static Action OnResumeButtonPressed;
         public static Action OnQuitToHomeButtonPressed;
