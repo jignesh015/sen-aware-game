@@ -32,6 +32,7 @@ namespace SenAware.ShapeMatch
                 if (!_sessionManager || !_sessionManager.CurrentGameInfo)
                 {
                     ShapeMatchStatic.CurrentDifficultyLevel = DifficultyLevel.Medium;
+                    ShapeMatchStatic.OnDifficultyLevelSet?.Invoke(ShapeMatchStatic.CurrentDifficultyLevel);
                     return;
                 }
             
@@ -69,6 +70,7 @@ namespace SenAware.ShapeMatch
             {
                 Debug.LogError($"Error assessing difficulty: {e.Message}");
                 ShapeMatchStatic.CurrentDifficultyLevel = DifficultyLevel.Medium;
+                ShapeMatchStatic.OnDifficultyLevelSet?.Invoke(ShapeMatchStatic.CurrentDifficultyLevel);
             }
         }
         

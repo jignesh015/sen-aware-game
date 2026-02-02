@@ -20,6 +20,7 @@ namespace SenAware.ShapeMatch
             ShapeMatchStatic.OnShapeMatchRoundStarted += OnShapeMatchRoundStarted;
             ShapeMatchStatic.OnShapeMatchRoundEnded += OnShapeMatchRoundEnded;
             ShapeMatchStatic.OnShapeOptionTapped += OnShapeOptionTapped;
+            GlobalStatic.OnAttentionStatusChanged += OnAttentionStatusChanged;
         }
 
         private void OnDestroy()
@@ -27,6 +28,7 @@ namespace SenAware.ShapeMatch
             ShapeMatchStatic.OnShapeMatchRoundStarted -= OnShapeMatchRoundStarted;
             ShapeMatchStatic.OnShapeMatchRoundEnded -= OnShapeMatchRoundEnded;
             ShapeMatchStatic.OnShapeOptionTapped -= OnShapeOptionTapped;
+            GlobalStatic.OnAttentionStatusChanged -= OnAttentionStatusChanged;
         }
 
         private void OnShapeMatchRoundStarted(int roundNumber, ShapesSO targetShape, List<ShapesSO> optionShapes)
@@ -85,6 +87,16 @@ namespace SenAware.ShapeMatch
                 _repeatedInteractionsCount++;
             }
             _lastTappedShape = tappedShape;
+        }
+
+        private void OnAttentionStatusChanged(bool isAttentive)
+        {
+            if (isAttentive) return;
+            
+            if (_sessionManager && _sessionManager.CurrentSessionAnalytics != null)
+            {
+                _sessionManager.CurrentSessionAnalytics.inattentiveWarnings++;
+            }
         }
     }
 }

@@ -74,6 +74,9 @@ namespace SenAware.ShapeMatch
             
             ShapeMatchStatic.OnShapeMatchGameStart?.Invoke(_currentShapeMatchDataData);
             StartNewRound(ShapeMatchStatic.CurrentDifficultyLevel);
+            
+            // Request attention check
+            GlobalStatic.OnRequestAttentionCheck?.Invoke(true);
         }
         
         private void StartNewRound(DifficultyLevel difficultyLevel)
@@ -82,6 +85,7 @@ namespace SenAware.ShapeMatch
             if (_currentRound >= _currentShapeMatchDataData.totalRounds)
             {
                 ShapeMatchStatic.OnShapeMatchGameEnd?.Invoke();
+                GlobalStatic.OnRequestAttentionCheck?.Invoke(false);
                 return;
             }
             

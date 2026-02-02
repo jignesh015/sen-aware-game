@@ -11,6 +11,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ShapeMatchGame.unity
     guid: 1c3581127fa87ba44aa05369b5a476e9
+  - enabled: 1
+    path: Assets/Scenes/CustomFaceDetection.unity
+    guid: 79bcccaae5538774082c655df9329142
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

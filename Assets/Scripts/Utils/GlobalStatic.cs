@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using FaceDetectionResult = Mediapipe.Tasks.Components.Containers.DetectionResult;
 
 namespace SenAware
 {
@@ -7,6 +8,7 @@ namespace SenAware
     {
         // Constants
         public const string HomeScene = "HomeScene";        
+        public const string FaceDetectionScene = "CustomFaceDetection";        
         public const float NewSceneLoadDelay = 1.5f;   
         public const float BGMCrossfadeDuration = 2f;   
         public const float SFXVolume = 1f;   
@@ -32,9 +34,13 @@ namespace SenAware
         public static Action<bool> OnMusicToggleChanged;
         public static Action<bool> OnSoundToggleChanged;
         public static Action<AudioClip> OnBGMRequested;
-        public static Action<AudioClip, bool> OnSFXRequested;
+        public static Action<AudioClip, bool> OnSFXRequested; // bool indicates whether to randomize pitch
         public static Action<int> OnButtonClickSFXRequested;
-        // bool indicates whether to randomize pitch
         
+        // Mediapipe Events
+        public static Action<FaceDetectionResult> OnFaceDetectionResult;
+        public static Action<bool> OnAttentionStatusChanged; // bool indicates whether user is attentive
+        public static Action<bool> OnRequestAttentionCheck; // bool indicates whether to start or stop attention check
+
     }
 }

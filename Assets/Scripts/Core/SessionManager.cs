@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Android;
 using UnityEngine.SceneManagement;
 
 namespace SenAware
@@ -66,9 +67,54 @@ namespace SenAware
             };
             Debug.Log($"New session started for game: {gameInfo.gameTitle}");
             GlobalStatic.OnSessionStarted?.Invoke();
-            
+
+            var hasCamPermission = await CameraPermissionCheck();
             await Awaitable.WaitForSecondsAsync(GlobalStatic.NewSceneLoadDelay);
-            SceneManager.LoadScene(gameInfo.gameSceneName);
+            await SceneManager.LoadSceneAsync(gameInfo.gameSceneName);
+            if(!hasCamPermission) return;
+            await SceneManager.LoadSceneAsync(GlobalStatic.FaceDetectionScene, LoadSceneMode.Additive);
+        }
+
+        private async Awaitable<bool> CameraPermissionCheck()
+        {
+            #if UNITY_EDITOR
+                return true;
+            #endif
+            
+            #if UNITY_ANDROID
+                // Check if camera permission is already granted
+                if (Permission.HasUserAuthorizedPermission(Permission.Camera))
+                {
+                    Debug.Log("Camera permission already granted.");
+                    return true;
+                }
+
+                // Request camera permission
+                Debug.Log("Requesting camera permission from user...");
+                Permission.RequestUserPermission(Permission.Camera);
+
+                // Wait for the permission request to complete
+                // We need to wait a bit for the system to process the request
+                var maxWaitFrames = 300; // Wait up to 5 seconds (assuming 60 FPS)
+                var frameCount = 0;
+
+                while (frameCount < maxWaitFrames)
+                {
+                    await Awaitable.NextFrameAsync();
+                    frameCount++;
+
+                    // Check if permission was granted
+                    if (!Permission.HasUserAuthorizedPermission(Permission.Camera)) continue;
+                    Debug.Log("Camera permission granted by user.");
+                    return true;
+                }
+
+                Debug.LogWarning("Camera permission was not granted or request timed out.");
+                return false;
+            #else
+                // For non-Android platforms, assume permission is granted
+                return true;
+            #endif
         }
         
         private async void EndCurrentSession(bool completedSession)
