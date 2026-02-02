@@ -42,3 +42,7 @@ With more development time, I would focus on:
 - Enhanced transition animations between game states
 - Additional game modules to diversify learning activities
 - Improved visual feedback animations for correct and incorrect responses
+
+## Video Demo:
+[Watch Gameplay Demo](https://www.youtube.com/watch?v=KFyeM_ljFf4)
+
